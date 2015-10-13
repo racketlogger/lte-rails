@@ -11,9 +11,7 @@ gem 'lte-rails'
 and add this to your application.css:
 
 ```
- /*
- ...
  *= require lte-rails
- ...
- */
 ```
+
+Not supporting the Javascript parts, yet.
