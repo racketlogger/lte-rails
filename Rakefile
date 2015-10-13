@@ -9,6 +9,12 @@ Bundler::GemHelper.install_tasks
 TARGET_DIR = 'vendor/assets/stylesheets'
 FULL_DIR = File.join(TARGET_DIR, "AdminLTE")
 
+def replace_in_file(filename, source, replacement)
+  text = File.read(filename)
+  repl = text.gsub(source, replacement)
+  File.open(filename, 'w') { |f| f << repl }
+end
+
 desc "Bundle the gem"
 task :bundle  => [:bundle_install, :build_files] do
   sh 'gem build *.gemspec'
@@ -36,10 +42,10 @@ task :build_files => [:clean] do
   FileUtils.cp_r "AdminLTE/build/less/", TARGET_DIR, preserve: true
   Dir.chdir TARGET_DIR do
     FileUtils.mv 'less', "AdminLTE"
-    file = "AdminLTE/AdminLTE.less"
-    text = File.read(file)
-    repl = text.gsub(/\.\.\/bootstrap-less\//, 'twitter/bootstrap/')
-    File.open(file, 'w') { |f| f << repl }
+    replace_in_file("AdminLTE/AdminLTE.less", /\.\.\/bootstrap-less\//, 'twitter/bootstrap/')
+    Dir.glob("AdminLTE/skins/*.less").each do |f|
+      replace_in_file(f, /\.\.\/\.\.\/bootstrap-less\//, 'twitter/bootstrap/')
+    end
   end
 end
 

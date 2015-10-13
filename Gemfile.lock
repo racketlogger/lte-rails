@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    lte-rails (0.0.1)
+    lte-rails (0.0.2)
       less-rails (~> 2.6)
       less-rails-bootstrap (~> 3.3)
 
