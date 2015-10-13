@@ -1,0 +1,3 @@
+[submodule "AdminLTE"]
+	path = AdminLTE
+	url = git@github.com:almasaeed2010/AdminLTE.git
