@@ -1,8 +1,8 @@
 # AdminLTE gem for Rails
 
-This is a gem for using the [AdminLTE](https://github.com/almasaeed2010/AdminLTE/issues) template within a Rails project.
+This is a gem for using the [AdminLTE](https://github.com/almasaeed2010/AdminLTE) template within a Rails project.
 
-This gem is currently using AvminLTE v2.3.0.
+This gem is currently using AvminLTE v2.3.5.
 
 To use, add this to your Gemfile:
 ```
